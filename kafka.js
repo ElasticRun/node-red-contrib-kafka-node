@@ -110,12 +110,16 @@ module.exports = function(RED) {
             this.status({fill:"green",shape:"dot",text:"connected to "+clusterZookeeper});
 
             consumer.on('message', function (message) {
+                console.log('inside message event');
                 if (debug) {
                     console.log(message);
                     node.log(message);
                 }
                 var msg = {payload: message};
-                node.send(msg);
+                setInterval ( function () {
+                    node.send(msg);    
+                }, 30000);
+                
             });
 
             
