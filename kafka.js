@@ -116,9 +116,9 @@ module.exports = function(RED) {
                     node.log(message);
                 }
                 var msg = {payload: message};
-                setInterval ( function () {
+               // setInterval ( function () {
                     node.send(msg);    
-                }, 30000);
+               // }, 30000);
                 
             });
 
